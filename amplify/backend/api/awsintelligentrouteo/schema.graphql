@@ -1,0 +1,27 @@
+type Coords {
+  lng: Float!
+  lat: Float!
+}
+
+type Marker {
+  point: Coords!
+  label: String
+}
+
+type Itinerary
+  @model
+  @auth(rules: [{ allow: owner, operations: [create, read, update, delete] }]) {
+  id: ID!
+  label: String!
+  points: [Marker]!
+  date: AWSDate!
+  optimized: Boolean! @default(value: "false")
+  hasStarted: Boolean! @default(value: "false")
+  type: String!
+    @index(
+      name: "itinerariesByDate"
+      queryField: "itinerariesByDate"
+      sortKeyFields: ["date"]
+    )
+    @default(value: "itinerary")
+}

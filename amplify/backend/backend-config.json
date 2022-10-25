@@ -1,6 +1,6 @@
 {
   "auth": {
-    "locationworkshop44c90446": {
+    "awsintelligentrouteo8d501961": {
       "service": "Cognito",
       "providerPlugin": "awscloudformation",
       "dependsOn": [],
@@ -28,33 +28,33 @@
     }
   },
   "geo": {
-    "workshopMap": {
+    "amplifymapdemo": {
       "isDefault": true,
       "providerPlugin": "awscloudformation",
       "service": "Map",
-      "mapStyle": "VectorHereExplore",
+      "mapStyle": "VectorEsriStreets",
       "accessType": "AuthorizedUsers",
       "dependsOn": [
         {
           "category": "auth",
-          "resourceName": "locationworkshop44c90446",
+          "resourceName": "awsintelligentrouteo8d501961",
           "attributes": [
             "UserPoolId"
           ]
         }
       ]
     },
-    "workshopPlaces": {
+    "amplifydemoplaces": {
       "isDefault": true,
       "providerPlugin": "awscloudformation",
       "service": "PlaceIndex",
-      "dataProvider": "Here",
+      "dataProvider": "Esri",
       "dataSourceIntendedUse": "Storage",
       "accessType": "AuthorizedUsers",
       "dependsOn": [
         {
           "category": "auth",
-          "resourceName": "locationworkshop44c90446",
+          "resourceName": "awsintelligentrouteo8d501961",
           "attributes": [
             "UserPoolId"
           ]
@@ -63,35 +63,19 @@
     }
   },
   "custom": {
-    "locationResources": {
+    "customLocation": {
       "service": "customCDK",
       "providerPlugin": "awscloudformation"
-    },
-    "iotResources": {
-      "service": "customCDK",
-      "providerPlugin": "awscloudformation",
-      "dependsOn": [
-        {
-          "category": "function",
-          "resourceName": "iotUpdateTrackerFn",
-          "attributes": [
-            "Name",
-            "Arn",
-            "Region",
-            "LambdaExecutionRole"
-          ]
-        }
-      ]
     }
   },
   "api": {
-    "locationworkshop": {
+    "awsintelligentrouteo": {
       "service": "AppSync",
       "providerPlugin": "awscloudformation",
       "dependsOn": [
         {
           "category": "auth",
-          "resourceName": "locationworkshop44c90446",
+          "resourceName": "awsintelligentrouteo8d501961",
           "attributes": [
             "UserPoolId"
           ]
@@ -102,75 +86,12 @@
           "defaultAuthentication": {
             "authenticationType": "AMAZON_COGNITO_USER_POOLS",
             "userPoolConfig": {
-              "userPoolId": "authlocationworkshop44c90446"
+              "userPoolId": "authawsintelligentrouteo8d501961"
             }
           },
           "additionalAuthenticationProviders": []
         }
       }
-    }
-  },
-  "function": {
-    "routeOptimizerFn": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda",
-      "dependsOn": [
-        {
-          "category": "api",
-          "resourceName": "locationworkshop",
-          "attributes": [
-            "GraphQLAPIIdOutput"
-          ]
-        }
-      ]
-    },
-    "deviceSimulatorFn": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda",
-      "dependsOn": [
-        {
-          "category": "api",
-          "resourceName": "locationworkshop",
-          "attributes": [
-            "GraphQLAPIIdOutput"
-          ]
-        }
-      ]
-    },
-    "iotUpdateTrackerFn": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda",
-      "dependsOn": []
-    },
-    "startItineraryFn": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda",
-      "dependsOn": [
-        {
-          "category": "function",
-          "resourceName": "deviceSimulatorFn",
-          "attributes": [
-            "Name"
-          ]
-        },
-        {
-          "category": "api",
-          "resourceName": "locationworkshop",
-          "attributes": [
-            "GraphQLAPIIdOutput"
-          ]
-        }
-      ]
-    },
-    "getDevicePositionFn": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda",
-      "dependsOn": []
     }
   }
 }

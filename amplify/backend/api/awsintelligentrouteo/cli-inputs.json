@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "serviceConfiguration": {
+    "apiName": "awsintelligentrouteo",
+    "serviceName": "AppSync",
+    "gqlSchemaPath": "/home/ec2-user/environment/aws-intelligent-route-optimization-tracking/amplify/backend/api/awsintelligentrouteo/schema.graphql",
+    "defaultAuthType": {
+      "mode": "AMAZON_COGNITO_USER_POOLS",
+      "cognitoUserPoolId": "authawsintelligentrouteo8d501961"
+    },
+    "conflictResolution": {},
+    "additionalAuthTypes": []
+  }
+}

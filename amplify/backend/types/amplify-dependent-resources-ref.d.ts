@@ -1,6 +1,6 @@
 export type AmplifyDependentResourcesAttributes = {
     "auth": {
-        "locationworkshop44c90446": {
+        "awsintelligentrouteo8d501961": {
             "IdentityPoolId": "string",
             "IdentityPoolName": "string",
             "UserPoolId": "string",
@@ -11,54 +11,22 @@ export type AmplifyDependentResourcesAttributes = {
         }
     },
     "geo": {
-        "workshopMap": {
+        "amplifymapdemo": {
             "Name": "string",
             "Style": "string",
             "Region": "string",
             "Arn": "string"
         },
-        "workshopPlaces": {
+        "amplifydemoplaces": {
             "Name": "string",
             "Region": "string",
             "Arn": "string"
         }
     },
     "api": {
-        "locationworkshop": {
+        "awsintelligentrouteo": {
             "GraphQLAPIIdOutput": "string",
             "GraphQLAPIEndpointOutput": "string"
-        }
-    },
-    "function": {
-        "routeOptimizerFn": {
-            "Name": "string",
-            "Arn": "string",
-            "Region": "string",
-            "LambdaExecutionRole": "string"
-        },
-        "deviceSimulatorFn": {
-            "Name": "string",
-            "Arn": "string",
-            "Region": "string",
-            "LambdaExecutionRole": "string"
-        },
-        "iotUpdateTrackerFn": {
-            "Name": "string",
-            "Arn": "string",
-            "Region": "string",
-            "LambdaExecutionRole": "string"
-        },
-        "startItineraryFn": {
-            "Name": "string",
-            "Arn": "string",
-            "Region": "string",
-            "LambdaExecutionRole": "string"
-        },
-        "getDevicePositionFn": {
-            "Name": "string",
-            "Arn": "string",
-            "Region": "string",
-            "LambdaExecutionRole": "string"
         }
     }
 }

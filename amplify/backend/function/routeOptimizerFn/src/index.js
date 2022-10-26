@@ -58,7 +58,7 @@ exports.handler = async (event) => {
   try {
     const { Item: itinerary } = await dynamoDBClient.send(
       new GetItemCommand({
-        TableName: process.env.API_LOCATIONWORKSHOP_ITINERARYTABLE_NAME,
+        TableName: process.env.API_AWSINTELLIGENTROUTEO_ITINERARYTABLE_NAME,
         Key: marshall({
           id: itineraryId,
         }),
@@ -159,7 +159,7 @@ exports.handler = async (event) => {
   try {
     const { Attributes: updatedItinerary } = await dynamoDBClient.send(
       new UpdateItemCommand({
-        TableName: process.env.API_LOCATIONWORKSHOP_ITINERARYTABLE_NAME,
+        TableName: process.env.API_AWSINTELLIGENTROUTEO_ITINERARYTABLE_NAME,
         Key: marshall({
           id: itineraryId,
         }),

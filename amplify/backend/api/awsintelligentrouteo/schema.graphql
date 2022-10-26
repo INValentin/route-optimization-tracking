@@ -25,3 +25,7 @@ type Itinerary
     )
     @default(value: "itinerary")
 }
+
+type Mutation {
+  optimized(id: ID): Itinerary @function(name: "routeOptimizerFn-${env}")
+}

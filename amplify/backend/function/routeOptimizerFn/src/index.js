@@ -127,7 +127,7 @@ exports.handler = async (event) => {
 
     routeMatrix = RouteMatrix;
   } catch (err) {
-    logger.error(`Error calculating route matrix: ${err}`);
+    logger.error(`Error calculating route matrix: ${err} --- ${JSON.stringify(process.env})`);
     return {
       statusCode: 500,
       body: "Error calculating route matrix",
